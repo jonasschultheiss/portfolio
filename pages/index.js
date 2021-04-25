@@ -1,60 +1,37 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import JSONPretty from 'react-json-pretty';
+import Header from '@components/header';
+import { getClient } from '@utils/sanity';
+import Head from 'next/head';
 
-import {getClient} from '../utils/sanity'
+export async function getStaticProps() {
+  console.log('ggggg', await getClient(true).fetch(`*[]`));
+  const siteSettings = await getClient(true).fetch(
+    `*[_type == "header"]{title, subTitle,hero_image, "socials": socials[]->}`
+  );
+  console.log('🚀 ~ file: index.js ~ line 8 ~ getStaticProps ~ data', siteSettings);
 
-  export async function getStaticProps() {
-    const data = await getClient(true).fetch(`*[]`);
+  return {
+    props: {
+      data: { ...siteSettings[0] }
+    },
+    revalidate: 50
+  };
+}
 
-  
-    return {
-      props: {
-       data: {data}
-      },
-      revalidate: 50
-    }
-  }
-
-export default function Home({data}) {
+export default function Home({ data }) {
+  console.log('🚀 ~ file: index.js ~ line 19 ~ Home ~ data', data);
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header title={data.title} subTitle={data.subTitle} image={data.hero_image} socials={data.socials} />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js</a> with <a href="https://sanity.io">Sanity.io Data</a>
-        </h1>
-        <br />
-        <JSONPretty style={{maxWidth: "100ch", overflowX: "scroll", boxShadow: "0 0 5px rgba(0,0,0,.3"}} id="json-pretty" data={data}></JSONPretty>
-
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-        <p className={styles.description}>
-          Or modify your data API with <a href="/studio/">Sanity Studio</a>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Next.js Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://sanity.io/docs" className={styles.card}>
-            <h3>Sanity.io Documentation</h3>
-            <p>Learn more about setting up Sanity Studio</p>
-          </a>
-
-        </div>
-
+      <main className="">
+        <p className=" font-extrabold">hello world</p>
       </main>
 
+      <footer className=""></footer>
     </div>
-  )
+  );
 }

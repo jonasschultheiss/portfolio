@@ -5,8 +5,8 @@
     "basePath": "/studio"
   },
   "api": {
-    "projectId": "PULLED_FROM_ENV",
-    "dataset": "PULLED_FROM_ENV"
+    "projectId": "95u2dk4e",
+    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
@@ -17,13 +17,13 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
-  "parts": [{
-    "name": "part:@sanity/base/schema",
-    "path": "./schemas/schema"
-  }]
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    }
+  ]
 }
