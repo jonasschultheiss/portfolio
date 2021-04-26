@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { urlFor } from '@utils/sanity';
 import Image from 'next/image';
+import Link from 'next/link';
 import CustomLink from './customLink';
 import Socials from './socials';
 
@@ -9,8 +10,12 @@ export default function Header({ title, subTitle, image, socials }) {
   return (
     <header className="bg-gray-900 p-4 md:p-12">
       <nav className="flex justify-between items-center mb-4">
-        <div>
-          <Image src="/logo.png" alt="Logo" width="40" height="40" layout="intrinsic" />
+        <div className="cursor-pointer">
+          <Link href="/">
+            <a>
+              <Image src="/logo.png" alt="Logo" width="40" height="40" layout="intrinsic" />
+            </a>
+          </Link>
         </div>
         <ul className="flex justify-between space-x-2">
           <li>
@@ -37,7 +42,7 @@ export default function Header({ title, subTitle, image, socials }) {
           width="150"
           height="150"
           layout="intrinsic"
-          className="rounded-full border border-fnatic"
+          className="rounded-full"
         />
         <div className="flex flex-col mt-4 md:ml-8 md:mt-0 text-center md:text-left">
           <h1 className="text-fnatic font-extrabold text-3xl">{title}</h1>

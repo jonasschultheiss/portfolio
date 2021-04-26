@@ -21,7 +21,7 @@ export async function getStaticProps() {
 
 export default function Home({ data }) {
   return (
-    <div className="">
+    <div className="min-h-screen">
       <Head>
         <title>Jonas Schultheiss</title>
         <link rel="icon" href="/favicon.ico" />
