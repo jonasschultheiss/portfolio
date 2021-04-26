@@ -1,21 +1,17 @@
 export default {
-  name: 'technology',
-  title: 'Technology',
+  title: 'Link',
+  name: 'link',
   type: 'document',
   fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string'
+    },
     {
       name: 'name',
       title: 'Name',
       type: 'string'
-    },
-    {
-      name: 'logo',
-      title: 'Logo',
-      type: 'image',
-      fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
-      options: {
-        hotspot: true
-      }
     },
     {
       name: 'href',

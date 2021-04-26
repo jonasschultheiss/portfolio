@@ -4,8 +4,8 @@ import { urlFor } from '@utils/sanity';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function BlogPostPreview({ image, title, subTitle, slug, createdAt }) {
-  const date = new Date(createdAt);
+export default function ProjectPreview({ image, title, subTitle, slug, projectStartDate }) {
+  const date = new Date(projectStartDate);
   const postedAt = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
   return (
@@ -27,7 +27,7 @@ export default function BlogPostPreview({ image, title, subTitle, slug, createdA
         </p>
       </div>
       <div className="flex justify-between p-2">
-        <Link href={`/blog/${slug.current}`}>
+        <Link href={`/projects/${slug.current}`}>
           <a className="text-fnatic font-bold">Go to Post</a>
         </Link>
         <p className="text-gray-100">Posted: {postedAt}</p>

@@ -5,11 +5,27 @@ import aboutSection from './aboutSection';
 import blog from './blog';
 import blogPost from './blogPost';
 import header from './header';
+import link from './link';
+import project from './project';
+import projects from './projects';
 import richText from './richText';
 import socials from './social';
 import technology from './technology';
 
 export default createSchema({
   name: 'default',
-  types: [...schemaTypes, header, socials, about, aboutSection, richText, technology, blog, blogPost]
+  types: [
+    ...schemaTypes,
+    header,
+    socials,
+    about,
+    aboutSection,
+    richText,
+    technology,
+    blog,
+    blogPost,
+    link,
+    project,
+    projects
+  ]
 });

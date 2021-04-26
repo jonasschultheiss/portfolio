@@ -1,4 +1,21 @@
+import Image from 'next/image';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+
+import { urlFor } from './sanity';
+
+const ImageRenderer = properties => {
+  const { node } = properties;
+  return (
+    <Image
+      src={urlFor(node.asset).width(640).height(360).quality(90).url()}
+      alt={node.alt}
+      width="640"
+      height="360"
+      layout="intrinsic"
+      className="rounded-md"
+    />
+  );
+};
 
 const CodeRenderer = properties => {
   const { node } = properties;
@@ -10,23 +27,24 @@ const CodeRenderer = properties => {
     </div>
   );
 };
+
 const BlockRenderer = properties => {
   const { node, children } = properties;
   switch (node.style) {
     case 'normal':
       return <p className="text-gray-900">{children}</p>;
     case 'h1':
-      return <h1 className="text-gray-900">{children}</h1>;
+      return <h1 className="font-bold text-2xl text-gray-900">{children}</h1>;
     case 'h2':
-      return <h2 className="text-gray-900">{children}</h2>;
+      return <h2 className="font-bold text-xl text-gray-900">{children}</h2>;
     case 'h3':
-      return <h3 className="text-gray-900">{children}</h3>;
+      return <h3 className="font-semibold text-xl text-gray-900">{children}</h3>;
     case 'h4':
-      return <h4 className="text-gray-900">{children}</h4>;
+      return <h4 className="font-semibold text-lg text-gray-900">{children}</h4>;
     case 'h5':
-      return <h5 className="text-gray-900">{children}</h5>;
+      return <h5 className="text-lg text-gray-900">{children}</h5>;
     case 'h6':
-      return <h6 className="text-gray-900">{children}</h6>;
+      return <h6 className="text-gray-700">{children}</h6>;
     case 'blockquote':
       return <blockquote className="text-gray-900">{children}</blockquote>;
     default:
@@ -45,7 +63,8 @@ const EmRenderer = properties => {
 export default {
   types: {
     code: CodeRenderer,
-    block: BlockRenderer
+    block: BlockRenderer,
+    image: ImageRenderer
   },
   marks: { strong: StrongRenderer, em: EmRenderer }
 };

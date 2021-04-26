@@ -28,7 +28,7 @@ export default function Home({ data }) {
       </Head>
       <Header title={data.title} subTitle={data.subTitle} image={data.hero_image} socials={data.socials} />
 
-      <main>
+      <main className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
         <About about={data.about} />
       </main>
 

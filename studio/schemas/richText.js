@@ -30,6 +30,15 @@ export default {
       type: 'code',
       name: 'code',
       title: 'Code example'
+    },
+    {
+      type: 'image',
+      name: 'image',
+      title: 'Image',
+      fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+      options: {
+        hotspot: true
+      }
     }
   ]
 };
