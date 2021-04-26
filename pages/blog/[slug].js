@@ -40,7 +40,6 @@ export async function getStaticPaths() {
   const paths = await getClient().fetch(groq`*[_type == "blogPost" && defined(slug.current)][].slug.current`);
 
   return {
-    paths: paths.map(slug => ({ params: { slug } })),
-    fallback: true
+    paths: paths.map(slug => ({ params: { slug } }))
   };
 }
