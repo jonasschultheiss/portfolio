@@ -12,6 +12,8 @@ export default function CustomLink({ children, activeClassName, ...properties })
       ? `${childClassName} ${activeClassName}`.trim()
       : childClassName;
 
+  console.log(asPath === properties.href || asPath === properties.as);
+
   return (
     <Link {...properties}>
       {React.cloneElement(child, {
