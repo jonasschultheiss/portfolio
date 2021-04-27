@@ -12,7 +12,7 @@ const ImageRenderer = properties => {
       width="640"
       height="360"
       layout="intrinsic"
-      className="rounded-md"
+      className="rounded"
     />
   );
 };

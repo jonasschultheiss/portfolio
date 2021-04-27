@@ -1,4 +1,6 @@
-import Technology from './technology';
+import Technology from '@components/technologies/technology';
+import stagger from '@variants/stagger';
+import { motion } from 'framer-motion';
 
 export default function Technologies({ technologies }) {
   return (
@@ -6,11 +8,11 @@ export default function Technologies({ technologies }) {
       {technologies ? (
         <div className="flex flex-col mb-4">
           <p className="font-semibold text-lg text-gray-900">Used technologies</p>
-          <div className="flex flex-row justify-start flex-wrap">
+          <motion.div variants={stagger} className="flex flex-row justify-start flex-wrap">
             {technologies.map(technology => (
               <Technology key={technology._id} name={technology.name} href={technology.href} />
             ))}
-          </div>
+          </motion.div>
         </div>
       ) : undefined}
     </div>
