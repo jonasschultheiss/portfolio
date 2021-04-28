@@ -7,7 +7,7 @@ import Socials from './socials';
 
 export default function Header({ title, subTitle, image, socials, logo }) {
   return (
-    <header className="p-4 md:p-12">
+    <header className="p-4 md:p-12 shadow">
       <nav className="flex justify-between items-center mb-8">
         <div className="cursor-pointer">
           <Link href="/">
