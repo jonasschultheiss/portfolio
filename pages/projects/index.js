@@ -28,7 +28,7 @@ export default function Home({ data }) {
   return (
     <div className="min-h-screen">
       <Head>
-        <title>Jonas Schultheiss</title>
+        <title>Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header title={header.title} subTitle={header.subTitle} image={header.hero_image} socials={header.socials} />

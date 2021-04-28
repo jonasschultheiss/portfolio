@@ -10,7 +10,7 @@ export default function BlogView(properties) {
   return (
     <div className="min-h-screen">
       <Head>
-        <title>Jonas Schultheiss</title>
+        <title>{post.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {title && <Header title={title} subTitle={subTitle} image={hero_image} socials={socials} />}
