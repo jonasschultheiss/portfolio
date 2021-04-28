@@ -23,6 +23,12 @@ export default {
       }
     },
     {
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
+    },
+    {
       title: 'Socials',
       name: 'socials',
       type: 'array',

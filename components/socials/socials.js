@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 export default function Socials({ socials }) {
   return (
-    <motion.div variants={stagger} className="flex flex-row items-center justify-center md:justify-start mt-2">
+    <div className="flex flex-row items-center justify-center md:justify-start mt-2">
       {socials && socials.map(social => <Social social={social} key={social._id} />)}
-    </motion.div>
+    </div>
   );
 }

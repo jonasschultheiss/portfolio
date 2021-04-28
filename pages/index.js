@@ -26,7 +26,13 @@ export default function Home({ data }) {
         <title>Jonas Schultheiss</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header title={data.title} subTitle={data.subTitle} image={data.hero_image} socials={data.socials} />
+      <Header
+        title={data.title}
+        subTitle={data.subTitle}
+        image={data.hero_image}
+        socials={data.socials}
+        logo={data.logo}
+      />
 
       <main className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
         <About about={data.about} />

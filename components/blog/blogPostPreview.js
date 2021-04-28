@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import { urlFor } from '@utils/sanity';
+import CDNImage from '@components/cdnImage';
 import fadeIn from '@variants/fadeIn';
 import hover from '@variants/hover';
 import tap from '@variants/tap';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function BlogPostPreview({ image, title, subTitle, slug, createdAt }) {
@@ -22,14 +21,7 @@ export default function BlogPostPreview({ image, title, subTitle, slug, createdA
         whileTap={tap}
         className="flex flex-col md:max-w-md bg-gray-900 rounded cursor-pointer"
       >
-        <Image
-          src={urlFor(image).width(600).height(250).quality(90).url()}
-          alt={image.alt}
-          width="600"
-          height="250"
-          layout="intrinsic"
-          className=" rounded-t-md"
-        />
+        <CDNImage image={image} width={600} height={250} className=" rounded-t" layout="intrinsic" />
         <div className="flex justify-start p-2 pb-0">
           <p className="text-gray-100">Posted: {postedAt}</p>
         </div>

@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import CDNImage from '@components/cdnImage';
 import ArrowLeftIcon from '@heroicons/react/solid/ArrowLeftIcon';
 import SanityBlockContent from '@sanity/block-content-to-react';
 import blockSerializer from '@utils/blockSerializer';
-import { urlFor } from '@utils/sanity';
 import fadeIn from '@variants/fadeIn';
 import hover from '@variants/hover';
 import tap from '@variants/tap';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function BlogPostView({ post }) {
@@ -35,15 +34,7 @@ export default function BlogPostView({ post }) {
           </motion.a>
         </Link>
       </div>
-
-      <Image
-        src={urlFor(image).width(1500).height(400).quality(90).url()}
-        alt={image.alt}
-        width="1500"
-        height="400"
-        layout="intrinsic"
-        className="rounded"
-      />
+      <CDNImage image={image} width={1500} height={400} className="rounded" layout="intrinsic" />
       <div className="flex flex-col md:flex-row-reverse items-start justify-between mt-6 mb-4">
         <p className="font-semibold text-fnatic">{postedAt}</p>
         <div className="flex flex-col">
