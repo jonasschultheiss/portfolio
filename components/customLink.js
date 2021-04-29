@@ -4,7 +4,6 @@ import React, { Children } from 'react';
 
 export default function CustomLink({ children, activeClassName, ...properties }) {
   const { asPath } = useRouter();
-  console.log('🚀 ~ file: customLink.js ~ line 7 ~ CustomLink ~ asPath', asPath);
   const child = Children.only(children);
   const childClassName = child.props.className || '';
 
