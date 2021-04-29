@@ -5,13 +5,13 @@ import { getClient } from '@utils/sanity';
 import Head from 'next/head';
 
 export async function getStaticProps() {
-  const settings = await getClient(true).fetch(`*[_type == "projects"]{title, subTitle}[0]`);
-  const projects = await getClient(true).fetch(
+  const settings = await getClient().fetch(`*[_type == "projects"]{title, subTitle}[0]`);
+  const projects = await getClient().fetch(
     `*[_type == "project"]|order(projectStartDate){..., "deployedLinks": 
     deployedLinks[]->,"repositories": repositories[]->,"technologies": technologies[]->}`
   );
-  const header = await getClient(true).fetch(
-    `*[_type == "header"]{title, subTitle,hero_image, "socials": socials[]->}[0]`
+  const header = await getClient().fetch(
+    `*[_type == "header"]{title, subTitle,hero_image, logo, "socials": socials[]->}[0]`
   );
 
   return {
@@ -31,7 +31,13 @@ export default function Home({ data }) {
         <title>Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header title={header.title} subTitle={header.subTitle} image={header.hero_image} socials={header.socials} />
+      <Header
+        title={header.title}
+        subTitle={header.subTitle}
+        image={header.hero_image}
+        socials={header.socials}
+        logo={header.logo}
+      />
       <main className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
         <Projects title={title} subTitle={subTitle} projects={projects} />
       </main>

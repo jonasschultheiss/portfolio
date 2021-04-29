@@ -6,14 +6,14 @@ import groq from 'groq';
 import Head from 'next/head';
 
 export default function BlogView(properties) {
-  const { title, subTitle, hero_image, socials, project } = properties;
+  const { title, subTitle, hero_image, socials, project, logo } = properties;
   return (
     <div className="min-h-screen">
       <Head>
         <title>{project.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {title && <Header title={title} subTitle={subTitle} image={hero_image} socials={socials} />}
+      {title && <Header title={title} subTitle={subTitle} image={hero_image} socials={socials} logo={logo} />}
       <main className="bg-gray-100 ">
         <ProjectView project={project} />
       </main>
@@ -23,7 +23,9 @@ export default function BlogView(properties) {
 }
 
 export async function getStaticProps({ params }) {
-  const header = await getClient().fetch(`*[_type == "header"]{title, subTitle,hero_image, "socials": socials[]->}[0]`);
+  const header = await getClient().fetch(
+    `*[_type == "header"]{title, subTitle,hero_image,logo, "socials": socials[]->}[0]`
+  );
   const project = await getClient().fetch(
     `*[_type == "project" && slug.current == $slug]{..., "deployedLinks": deployedLinks[]->,"repositories": 
     repositories[]->,"technologies": technologies[]->,"links": links[]->}[0]`,

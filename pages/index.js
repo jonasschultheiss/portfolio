@@ -6,7 +6,7 @@ import Head from 'next/head';
 
 export async function getStaticProps() {
   const header = await getClient(true).fetch(
-    `*[_type == "header"]{title, subTitle,hero_image, "socials": socials[]->}`
+    `*[_type == "header"]{title, subTitle,hero_image, logo, "socials": socials[]->}`
   );
 
   const about = await getClient(true).fetch(`*[_type == "about"]{title, subTitle, "sections": sections[]->}`);
@@ -33,11 +33,9 @@ export default function Home({ data }) {
         socials={data.socials}
         logo={data.logo}
       />
-
       <main className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
         <About about={data.about} />
       </main>
-
       <Footer />
     </div>
   );
