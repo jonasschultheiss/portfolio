@@ -5,11 +5,11 @@ import { getClient } from '@utils/sanity';
 import Head from 'next/head';
 
 export async function getStaticProps() {
-  const header = await getClient(true).fetch(
+  const header = await getClient().fetch(
     `*[_type == "header"]{title, subTitle,hero_image, logo, "socials": socials[]->}`
   );
 
-  const about = await getClient(true).fetch(`*[_type == "about"]{title, subTitle, "sections": sections[]->}`);
+  const about = await getClient().fetch(`*[_type == "about"]{title, subTitle, "sections": sections[]->}`);
 
   return {
     props: {
