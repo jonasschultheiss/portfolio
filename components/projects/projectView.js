@@ -15,14 +15,14 @@ export default function ProjectView({ project }) {
   const { title, subTitle, image, projectStartDate, body, deployedLinks, repositories, technologies, links } = project;
 
   const date = new Date(projectStartDate);
-  const postedAt = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+  const postedAt = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={fadeIn}
-      className="flex flex-col p-4 md:px-8 md:py-6 lg:px-16 lg:py-12 xl:px-32 xl:py-24"
+      className="flex flex-col p-4 md:px-8 md:py-6 lg:px-16 lg:py-12 xl:px-32 xl:py-24 md:max-w-7xl mx-auto"
     >
       <div className="flex justify-start">
         <Link href="/projects">
@@ -36,8 +36,10 @@ export default function ProjectView({ project }) {
           </motion.a>
         </Link>
       </div>
-      <CDNImage image={image} width={1500} height={400} className="rounded" layout="intrinsic" />
-      <div className="flex flex-col md:flex-row-reverse items-start justify-between mt-6 mb-4">
+      <div className="w-full relative h-96">
+        <CDNImage image={image} className="rounded object-cover" layout="fill" />
+      </div>
+      <div className="flex flex-col items-start justify-between mt-6 mb-4">
         <p className="font-semibold text-fnatic">Project start: {postedAt}</p>
         <div className="flex flex-col">
           <h1 className="font-bold text-3xl text-gray-900">{title}</h1>

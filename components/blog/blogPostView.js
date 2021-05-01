@@ -20,7 +20,7 @@ export default function BlogPostView({ post }) {
       initial="hidden"
       animate="visible"
       variants={fadeIn}
-      className="flex flex-col p-4 md:px-8 md:py-6 lg:px-16 lg:py-12 xl:px-32 xl:py-24"
+      className="flex flex-col p-4 md:px-8 md:py-6 lg:px-16 lg:py-12 xl:px-32 xl:py-24 md:max-w-7xl mx-auto"
     >
       <div className="flex justify-start">
         <Link href="/blog">
@@ -34,7 +34,9 @@ export default function BlogPostView({ post }) {
           </motion.a>
         </Link>
       </div>
-      <CDNImage image={image} width={1500} height={400} className="rounded" layout="intrinsic" />
+      <div className="w-full relative h-96">
+        <CDNImage image={image} className="rounded object-cover" layout="fill" />
+      </div>
       <div className="flex flex-col md:flex-row-reverse items-start justify-between mt-6 mb-4">
         <p className="font-semibold text-fnatic">{postedAt}</p>
         <div className="flex flex-col">

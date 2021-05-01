@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function BlogPostPreview({ image, title, subTitle, slug, createdAt }) {
   const date = new Date(createdAt);
-  const postedAt = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+  const postedAt = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
   return (
     <Link href={`/blog/${slug.current}`}>
@@ -23,13 +23,13 @@ export default function BlogPostPreview({ image, title, subTitle, slug, createdA
       >
         <CDNImage image={image} width={600} height={250} className=" rounded-t" layout="intrinsic" />
         <div className="flex justify-start p-2 pb-0">
-          <p className="text-gray-100">Posted: {postedAt}</p>
+          <p className="text-fnatic font-medium">Posted: {postedAt}</p>
         </div>
         <div className="flex flex-col p-2">
           <p className="text-gray-100 font-bold text-xl">
             <em className="not-italic">{title}</em>
           </p>
-          <p className="text-gray-100 font-semibold text-lg">
+          <p className="text-gray-300 font-semibold text-lg">
             <em className="not-italic">{subTitle}</em>
           </p>
         </div>
