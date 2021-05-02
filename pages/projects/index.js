@@ -7,7 +7,7 @@ import Head from 'next/head';
 export async function getStaticProps() {
   const settings = await getClient().fetch(`*[_type == "projects"]{title, subTitle}[0]`);
   const projects = await getClient().fetch(
-    `*[_type == "project"]|order(projectStartDate){..., "deployedLinks": 
+    `*[_type == "project"]|order(projectStartDate desc){..., "deployedLinks": 
     deployedLinks[]->,"repositories": repositories[]->,"technologies": technologies[]->}`
   );
   const header = await getClient().fetch(

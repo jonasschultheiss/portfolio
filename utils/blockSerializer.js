@@ -5,14 +5,17 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 const ImageRenderer = properties => {
   const { node } = properties;
   return (
-    <Image
-      src={urlFor(node.asset).width(640).height(360).quality(90).url()}
-      alt={node.alt}
-      width="640"
-      height="360"
-      layout="intrinsic"
-      className="rounded"
-    />
+    <div className="flex flex-col w-full justify-center items-center">
+      <div className="relative h-96 rounded mx-auto w-full">
+        <Image
+          src={urlFor(node.asset).quality(90).url()}
+          alt={node.alt}
+          layout="fill"
+          className="rounded object-contain"
+        />
+      </div>
+      <p className="text-sm text-gray-700 text-center">Figure: {node.description}</p>
+    </div>
   );
 };
 

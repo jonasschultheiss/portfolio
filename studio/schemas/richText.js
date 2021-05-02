@@ -35,7 +35,10 @@ export default {
       type: 'image',
       name: 'image',
       title: 'Image',
-      fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+      fields: [
+        { name: 'alt', title: 'Alt', type: 'string' },
+        { name: 'description', title: 'Figure description', type: 'string' }
+      ],
       options: {
         hotspot: true
       }
