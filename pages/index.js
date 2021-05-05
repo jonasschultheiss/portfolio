@@ -1,42 +1,25 @@
 import About from '@components/about';
-import Footer from '@components/footer';
-import Header from '@components/header';
+import Layout from '@components/layout';
 import { getClient } from '@utils/sanity';
-import Head from 'next/head';
 
 export async function getStaticProps() {
-  const header = await getClient().fetch(
-    `*[_type == "header"]{title, subTitle,hero_image, logo, "socials": socials[]->}`
-  );
-
   const about = await getClient().fetch(`*[_type == "about"]{title, subTitle, "sections": sections[]->}`);
 
   return {
     props: {
-      data: { ...header[0], about: about[0] }
+      data: { about: about[0] }
     },
     revalidate: 50
   };
 }
 
 export default function Home({ data }) {
+  const { title, subTitle } = data.about;
   return (
-    <div className="min-h-screen">
-      <Head>
-        <title>Jonas Schultheiss</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header
-        title={data.title}
-        subTitle={data.subTitle}
-        image={data.hero_image}
-        socials={data.socials}
-        logo={data.logo}
-      />
+    <Layout title={title} description={subTitle}>
       <main className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
         <About about={data.about} />
       </main>
-      <Footer />
-    </div>
+    </Layout>
   );
 }

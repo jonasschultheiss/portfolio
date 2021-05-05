@@ -1,6 +1,7 @@
 import { urlFor } from '@utils/sanity';
 import Image from 'next/image';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import dark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
 
 const ImageRenderer = properties => {
   const { node } = properties;
@@ -11,7 +12,7 @@ const ImageRenderer = properties => {
           src={urlFor(node.asset).quality(90).url()}
           alt={node.alt}
           layout="fill"
-          className="rounded object-contain"
+          className="rounded object-cover"
         />
       </div>
       <p className="text-sm text-gray-700 text-center">Figure: {node.description}</p>
@@ -23,7 +24,7 @@ const CodeRenderer = properties => {
   const { node } = properties;
   return (
     <div>
-      <SyntaxHighlighter wrapLines wrapLongLines language={node.language}>
+      <SyntaxHighlighter showLineNumbers wrapLines wrapLongLines language={node.language} style={dark}>
         {node.code}
       </SyntaxHighlighter>
     </div>

@@ -1,10 +1,9 @@
-import CDNImage from '@components/cdnImage';
+import LocalImage from '@components/localImage';
 
-export default function Social({ social }) {
-  const { icon, href } = social;
+export default function Social({ href, src, alt }) {
   return (
     <a href={href} target="_blank" rel="noreferrer" className="mr-4 cursor-pointer">
-      <CDNImage image={icon} width={24} height={24} className="fill-current text-fnatic" layout="intrinsic" />
+      <LocalImage src={src} alt={alt} width={24} height={24} layout="intrinsic" />
     </a>
   );
 }

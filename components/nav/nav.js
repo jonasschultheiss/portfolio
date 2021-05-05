@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import CDNImage from '@components/cdnImage';
+import LocalImage from '@components/localImage';
 import NavItem from '@components/nav/navItem';
 import Link from 'next/link';
 
-export default function Nav({ logo }) {
+export default function Nav() {
   return (
     <nav className="flex justify-between items-center mb-8">
       <div className="cursor-pointer">
         <Link href="/">
           <a href="/">
-            <CDNImage image={logo} width={40} height={40} layout="intrinsic" />
+            <LocalImage src="/logo.png" alt="Logo" width={40} height={40} layout="intrinsic" />
           </a>
         </Link>
       </div>
