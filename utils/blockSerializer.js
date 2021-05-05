@@ -6,16 +6,21 @@ import dark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
 const ImageRenderer = properties => {
   const { node } = properties;
   return (
-    <div className="flex flex-col w-full justify-center items-center">
-      <div className="relative h-96 rounded mx-auto w-full">
-        <Image
-          src={urlFor(node.asset).quality(90).url()}
-          alt={node.alt}
-          layout="fill"
-          className="rounded object-cover"
-        />
+    <div className="flex flex-col w-full justify-center items-center my-4">
+      <div className="bg-gray-200 shadow rounded w-full space-y-1">
+        <div className="relative rounded mx-auto w-full">
+          <Image
+            src={urlFor(node.asset).quality(90).url()}
+            alt={node.alt}
+            layout="intrinsic"
+            width="1280"
+            height="720"
+            className="rounded-t"
+            objectFit="scale"
+          />
+        </div>
+        <p className="text-sm text-gray-700 text-center p-1">Figure: {node.description}</p>
       </div>
-      <p className="text-sm text-gray-700 text-center">Figure: {node.description}</p>
     </div>
   );
 };
@@ -23,7 +28,7 @@ const ImageRenderer = properties => {
 const CodeRenderer = properties => {
   const { node } = properties;
   return (
-    <div>
+    <div className="my-4">
       <SyntaxHighlighter showLineNumbers wrapLines wrapLongLines language={node.language} style={dark}>
         {node.code}
       </SyntaxHighlighter>

@@ -17,7 +17,7 @@ export default function ProjectPreview({ image, title, subTitle, slug, projectSt
         animate="visible"
         variants={fadeIn}
         whileHover={hover}
-        className="flex flex-col md:max-w-md bg-gray-900 rounded cursor-pointer"
+        className="flex flex-col md:max-w-md bg-gray-900 rounded cursor-pointer shadow"
       >
         <div className="flex flex-col md:max-w-md bg-gray-900 rounded">
           <CDNImage image={image} width={600} height={250} className="rounded-t" layout="intrinsic" />
