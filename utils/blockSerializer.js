@@ -7,7 +7,7 @@ const ImageRenderer = properties => {
   const { node } = properties;
   return (
     <div className="flex flex-col w-full justify-center items-center my-4">
-      <div className="bg-gray-200 shadow rounded w-full space-y-1">
+      <div className="bg-gray-200 shadow rounded w-full my-4">
         <div className="relative rounded mx-auto w-full">
           <Image
             src={urlFor(node.asset).quality(90).url()}

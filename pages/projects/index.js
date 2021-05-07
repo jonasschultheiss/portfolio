@@ -22,9 +22,7 @@ export default function Home({ data }) {
 
   return (
     <Layout title={title} description={subTitle}>
-      <div className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
-        <Projects title={title} subTitle={subTitle} projects={projects} />
-      </div>
+      <Projects title={title} subTitle={subTitle} projects={projects} />
     </Layout>
   );
 }

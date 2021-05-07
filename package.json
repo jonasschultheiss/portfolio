@@ -5,6 +5,7 @@
   "author": "Jonas Raphael Schultheiss",
   "scripts": {
     "dev": "next",
+    "prod": "npm run build && npm run start:web",
     "build": "npm run build:sanity && npm run build:web",
     "build:web": "next build",
     "start:web": "next start",

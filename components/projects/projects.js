@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Projects({ title, subTitle, projects }) {
   return (
-    <div>
+    <>
       <PageTitle title={title} subTitle={subTitle} />
       <div className="p-2 md:grid md:grid-cols-3 md:gap-4 md:space-y-0 space-y-4 md:place-items-center">
         {projects &&
@@ -19,6 +19,6 @@ export default function Projects({ title, subTitle, projects }) {
             />
           ))}
       </div>
-    </div>
+    </>
   );
 }

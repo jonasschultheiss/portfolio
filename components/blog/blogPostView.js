@@ -16,12 +16,7 @@ export default function BlogPostView({ post }) {
   const postedAt = date.slice(0, date.lastIndexOf(':'));
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={fadeIn}
-      className="flex flex-col p-4 md:px-8 md:py-6 lg:px-16 lg:py-12 xl:px-32 xl:py-24 md:max-w-7xl mx-auto"
-    >
+    <motion.div initial="hidden" animate="visible" variants={fadeIn} className="flex flex-col md:max-w-7xl mx-auto">
       <div className="flex justify-start">
         <Link href="/blog">
           <motion.a

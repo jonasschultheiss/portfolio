@@ -17,9 +17,7 @@ export default function Home({ data }) {
   const { title, subTitle } = data.about;
   return (
     <Layout title={title} description={subTitle}>
-      <main className="bg-gray-100 p-4 pt-6 md:p-12 md:pt-14">
-        <About about={data.about} />
-      </main>
+      <About about={data.about} />
     </Layout>
   );
 }
