@@ -3,6 +3,7 @@
 import CDNImage from '@components/cdnImage';
 import fadeIn from '@variants/fadeIn';
 import hover from '@variants/hover';
+import tap from '@variants/tap';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -17,7 +18,8 @@ export default function ProjectPreview({ image, title, subTitle, slug, projectSt
         animate="visible"
         variants={fadeIn}
         whileHover={hover}
-        className="flex flex-col md:max-w-md bg-gray-900 rounded cursor-pointer shadow"
+        whileTap={tap}
+        className="flex flex-col md:max-w-md bg-gray-900 rounded cursor-pointer"
       >
         <div className="flex flex-col md:max-w-md bg-gray-900 rounded">
           <CDNImage image={image} width={600} height={250} className="rounded-t" layout="intrinsic" />
