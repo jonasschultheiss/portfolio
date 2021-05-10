@@ -14,14 +14,7 @@ export default function CDNImage({ className, image, width, height, layout }) {
 
   return (
     <motion.div initial="hidden" animate="visible" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-      <Image
-        src={url}
-        alt={image && image.alt}
-        width={width}
-        height={height}
-        className={(className += ' shadow')}
-        layout={layout}
-      />
+      <Image src={url} alt={image && image.alt} width={width} height={height} layout={layout} className={className} />
     </motion.div>
   );
 }

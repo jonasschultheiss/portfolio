@@ -29,7 +29,7 @@ export default function BlogPostView({ post }) {
           </motion.a>
         </Link>
       </div>
-      <div className="w-full relative h-96">
+      <div className="w-full relative h-96 rounded shadow">
         <CDNImage image={image} className="rounded object-cover" layout="fill" />
       </div>
       <div className="flex flex-col md:flex-row-reverse items-start justify-between mt-6 mb-4">

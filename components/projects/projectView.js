@@ -31,7 +31,7 @@ export default function ProjectView({ project }) {
           </motion.a>
         </Link>
       </div>
-      <div className="w-full relative h-96">
+      <div className="w-full relative h-96 rounded shadow">
         <CDNImage image={image} className="rounded object-cover" layout="fill" />
       </div>
       <div className="flex flex-col items-start justify-between mt-6 mb-4">
