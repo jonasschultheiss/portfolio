@@ -23,7 +23,7 @@ export default function BlogPostPreview({ image, title, subTitle, slug, createdA
       >
         <CDNImage image={image} width={600} height={250} className=" rounded-t" layout="intrinsic" />
         <div className="flex justify-start p-2 pb-0">
-          <p className="text-fnatic font-medium">Posted: {postedAt}</p>
+          <p className="text-brand-500 font-medium">Posted: {postedAt}</p>
         </div>
         <div className="flex flex-col p-2">
           <p className="text-gray-100 font-bold text-xl">

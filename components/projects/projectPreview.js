@@ -24,7 +24,7 @@ export default function ProjectPreview({ image, title, subTitle, slug, projectSt
         <div className="flex flex-col md:max-w-md bg-gray-900 rounded">
           <CDNImage image={image} width={600} height={250} className="rounded-t" layout="intrinsic" />
           <div className="flex justify-start p-2 pb-0">
-            <p className="text-fnatic font-medium">Project start: {postedAt}</p>
+            <p className="text-brand-500 font-medium">Project start: {postedAt}</p>
           </div>
           <div className="flex flex-col p-2">
             <p className="text-gray-100 font-bold text-xl">

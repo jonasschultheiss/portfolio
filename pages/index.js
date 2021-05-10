@@ -14,10 +14,10 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
-  const { title, subTitle } = data.about;
+  const { about } = data;
   return (
-    <Layout title={title} description={subTitle}>
-      <About about={data.about} />
+    <Layout title="Jonas Schultheiss" description="Full stack developer from Switzerland">
+      <About about={about} />
     </Layout>
   );
 }

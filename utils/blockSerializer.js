@@ -65,7 +65,7 @@ const StrongRenderer = properties => {
 };
 const EmRenderer = properties => {
   const { children } = properties;
-  return <em className="not-italic text-fnatic font-medium">{children}</em>;
+  return <em className="not-italic text-fnatic-600 font-medium">{children}</em>;
 };
 
 export default {

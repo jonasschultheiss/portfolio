@@ -33,7 +33,7 @@ export default function BlogPostView({ post }) {
         <CDNImage image={image} className="rounded object-cover" layout="fill" />
       </div>
       <div className="flex flex-col md:flex-row-reverse items-start justify-between mt-6 mb-4">
-        <p className="font-semibold text-fnatic">{postedAt}</p>
+        <p className="font-semibold text-brand-600">{postedAt}</p>
         <div className="flex flex-col">
           <h1 className="font-bold text-3xl text-gray-900">{title}</h1>
           <h2 className="font-semibold text-xl text-gray-700">{subTitle}</h2>
