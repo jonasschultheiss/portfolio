@@ -1,4 +1,4 @@
-export default function Link({ name, href, newTab }) {
+export default function Link({ children, href, newTab }) {
   return (
     <a
       className="font-medium text-blue-700 hover:underline"
@@ -6,7 +6,7 @@ export default function Link({ name, href, newTab }) {
       target={newTab && '_blank'}
       rel={newTab && 'noopener noreferrer'}
     >
-      {name}
+      {children}
     </a>
   );
 }
