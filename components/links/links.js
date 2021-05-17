@@ -8,7 +8,9 @@ export default function Links({ links, title }) {
           <p className="font-semibold text-lg text-gray-900">{title}</p>
           <div className="flex flex-col justify-start">
             {links.map(link => (
-              <Link key={link._id} name={link.name} href={link.href} />
+              <Link key={link._id} href={link.href} newTab>
+                {link.name}
+              </Link>
             ))}
           </div>
         </div>

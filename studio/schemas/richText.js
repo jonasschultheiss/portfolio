@@ -23,6 +23,17 @@ export default {
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' }
+        ],
+        annotations: [
+          {
+            name: 'link',
+            type: 'object',
+            title: 'URL',
+            fields: [
+              { title: 'URL', name: 'href', type: 'url' },
+              { title: 'Open in new window', name: 'blank', type: 'boolean' }
+            ]
+          }
         ]
       }
     },

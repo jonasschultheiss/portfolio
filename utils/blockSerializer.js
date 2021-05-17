@@ -1,10 +1,10 @@
+import Link from '@components/links/link';
 import { urlFor } from '@utils/sanity';
 import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import dark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
 
-const ImageRenderer = properties => {
-  const { node } = properties;
+const ImageRenderer = ({ node }) => {
   return (
     <div className="flex flex-col w-full justify-center items-center my-4">
       <div className="bg-gray-200 shadow rounded w-full my-4">
@@ -25,10 +25,9 @@ const ImageRenderer = properties => {
   );
 };
 
-const CodeRenderer = properties => {
-  const { node } = properties;
+const CodeRenderer = ({ node }) => {
   return (
-    <div className="my-4">
+    <div className="my-4 rounded shadow">
       <SyntaxHighlighter showLineNumbers wrapLines wrapLongLines language={node.language} style={dark}>
         {node.code}
       </SyntaxHighlighter>
@@ -54,18 +53,26 @@ const BlockRenderer = properties => {
     case 'h6':
       return <h6 className="text-gray-700 mb-2 mt-2">{children}</h6>;
     case 'blockquote':
-      return <blockquote className="text-gray-900 mb-2">{children}</blockquote>;
+      return <blockquote className="text-gray-900 mb-2">{`"${children}"`}</blockquote>;
     default:
       return <p className="text-gray-900 mb-2">{children}</p>;
   }
 };
-const StrongRenderer = properties => {
-  const { children } = properties;
+
+const StrongRenderer = ({ children }) => {
   return <strong className="font-semibold">{children}</strong>;
 };
-const EmRenderer = properties => {
-  const { children } = properties;
-  return <em className="not-italic text-fnatic-600 font-medium">{children}</em>;
+
+const EmRenderer = ({ children }) => {
+  return <em className="not-italic text-brand-600 font-medium">{children}</em>;
+};
+
+const LinkRenderer = ({ mark, children }) => {
+  return (
+    <Link newTab={mark.blank} href={mark.href}>
+      {children}
+    </Link>
+  );
 };
 
 export default {
@@ -74,5 +81,5 @@ export default {
     block: BlockRenderer,
     image: ImageRenderer
   },
-  marks: { strong: StrongRenderer, em: EmRenderer }
+  marks: { strong: StrongRenderer, em: EmRenderer, link: LinkRenderer }
 };

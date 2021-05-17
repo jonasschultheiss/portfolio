@@ -1,10 +1,12 @@
-export default function Link({ name, href }) {
+export default function Link({ name, href, newTab }) {
   return (
-    <p className="font-medium text-gray-700">
-      {`${name}: `}
-      <a className="font-normal text-blue-600" href={href} target="_blank" rel="noreferrer">
-        {href}
-      </a>
-    </p>
+    <a
+      className="font-medium text-blue-700 hover:underline"
+      href={href}
+      target={newTab && '_blank'}
+      rel={newTab && 'noopener noreferrer'}
+    >
+      {name}
+    </a>
   );
 }
