@@ -69,9 +69,11 @@ const EmRenderer = ({ children }) => {
 
 const LinkRenderer = ({ mark, children }) => {
   return (
-    <Link newTab={mark.blank} href={mark.href}>
-      {children}
-    </Link>
+    <div>
+      <Link newTab={mark.blank} href={mark.href}>
+        {children}
+      </Link>
+    </div>
   );
 };
 
