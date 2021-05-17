@@ -1,5 +1,5 @@
 import About from '@components/about';
-import Layout from '@components/layout';
+import CustomHead from '@components/customHead';
 import { getClient } from '@utils/sanity';
 
 export async function getStaticProps() {
@@ -16,8 +16,9 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   const { about } = data;
   return (
-    <Layout title="Jonas Schultheiss" description="Full stack developer from Switzerland">
+    <>
+      <CustomHead title="Jonas Schultheiss" description="Full stack developer from Switzerland" />
       <About about={about} />
-    </Layout>
+    </>
   );
 }

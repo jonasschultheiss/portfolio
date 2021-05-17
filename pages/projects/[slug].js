@@ -1,4 +1,4 @@
-import Layout from '@components/layout';
+import CustomHead from '@components/customHead';
 import ProjectView from '@components/projects/projectView';
 import { getClient } from '@utils/sanity';
 import groq from 'groq';
@@ -6,9 +6,10 @@ import groq from 'groq';
 export default function BlogView(properties) {
   const { title, subTitle, image } = properties.project;
   return (
-    <Layout title={title} description={subTitle} image={image}>
+    <>
+      <CustomHead title={title} description={subTitle} image={image} />
       <ProjectView project={properties.project} />
-    </Layout>
+    </>
   );
 }
 

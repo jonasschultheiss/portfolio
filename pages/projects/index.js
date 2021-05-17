@@ -1,4 +1,4 @@
-import Layout from '@components/layout';
+import CustomHead from '@components/customHead';
 import Projects from '@components/projects';
 import { getClient } from '@utils/sanity';
 
@@ -21,8 +21,9 @@ export default function Home({ data }) {
   const { title, subTitle, projects } = data;
 
   return (
-    <Layout title={title} description={subTitle}>
+    <>
+      <CustomHead title={title} description={subTitle} />
       <Projects title={title} subTitle={subTitle} projects={projects} />
-    </Layout>
+    </>
   );
 }

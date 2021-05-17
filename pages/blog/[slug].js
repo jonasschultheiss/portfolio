@@ -1,14 +1,15 @@
 import BlogPostView from '@components/blog/blogPostView';
-import Layout from '@components/layout';
+import CustomHead from '@components/customHead';
 import { getClient } from '@utils/sanity';
 import groq from 'groq';
 
 export default function BlogView(properties) {
   const { title, subTitle, image } = properties.post;
   return (
-    <Layout title={title} description={subTitle} image={image}>
+    <>
+      <CustomHead title={title} description={subTitle} image={image} />
       <BlogPostView post={properties.post} />
-    </Layout>
+    </>
   );
 }
 

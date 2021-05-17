@@ -1,5 +1,5 @@
 import Blog from '@components/blog';
-import Layout from '@components/layout';
+import CustomHead from '@components/customHead';
 import { getClient } from '@utils/sanity';
 
 export async function getStaticProps() {
@@ -18,8 +18,9 @@ export default function Home({ data }) {
   const { title, subTitle, posts } = data;
 
   return (
-    <Layout title={title} description={subTitle}>
+    <>
+      <CustomHead title={title} description={subTitle} />
       <Blog title={title} subTitle={subTitle} posts={posts} />
-    </Layout>
+    </>
   );
 }
