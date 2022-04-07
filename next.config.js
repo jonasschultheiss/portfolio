@@ -10,5 +10,14 @@ module.exports = {
   future: {
     webpack5: true
   },
-  rewrites: () => [STUDIO_REWRITE]
+  rewrites: () => [STUDIO_REWRITE],
+  async redirects() {
+    return [
+      {
+        source: '/trainings/backend/register',
+        destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        permanent: true
+      }
+    ];
+  }
 };
